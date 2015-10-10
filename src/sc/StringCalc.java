@@ -26,7 +26,10 @@ public class StringCalc {
 					}
 					negString += inputArr[i];
 				}
-				sumInput += Integer.parseInt(inputArr[i]);
+				if (Integer.parseInt(inputArr[i]) <= 1000)
+				{
+					sumInput += Integer.parseInt(inputArr[i]);
+				}
 			}
 			if (negString.length() > 0)
 			{

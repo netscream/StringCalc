@@ -56,4 +56,9 @@ public class TestSC {
 			Assert.assertEquals("Negatives not allowed: -4,-5", except.getMessage());
 		}
 	}
+	
+	@Test
+	public final void notOverThousand(){
+		Assert.assertEquals(2, StringCalc.add("1001,2"));
+	}
 }
