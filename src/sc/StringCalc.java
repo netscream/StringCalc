@@ -15,9 +15,23 @@ public class StringCalc {
 		{
 			String[] inputArr;
 			inputArr = Input.split(stringSplit);
+			String negString = "";
 			for (int i = 0; i < inputArr.length; i++)
 			{
+				if (Integer.parseInt(inputArr[i]) < 0)
+				{
+					if (negString.length() > 0)
+					{
+						negString += ",";
+					}
+					negString += inputArr[i];
+				}
 				sumInput += Integer.parseInt(inputArr[i]);
+			}
+			if (negString.length() > 0)
+			{
+				throw new RuntimeException("Negatives not allowed: " + negString);
+				
 			}
 			return sumInput;
 		}

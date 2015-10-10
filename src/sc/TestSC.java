@@ -21,7 +21,6 @@ public class TestSC {
 	@Test
 	public final void twoNumbersAdded(){
 		Assert.assertEquals(3, StringCalc.add("1,2")); //suming up 2 numbers
-		Assert.assertEquals(1, StringCalc.add("-1,2")); //suming one negative number
 	}
 	
 	@Test
@@ -39,5 +38,22 @@ public class TestSC {
 	public final void changeDelimineter(){
 		Assert.assertEquals(3, StringCalc.add("//;\n1;2"));
 		Assert.assertEquals(6, StringCalc.add("//;\n1;2,3"));
+	}
+	
+	@Test
+	public final void negativesNotAllowed(){
+		//Assert.assertEquals(RuntimeException("Negatives not allowed: -1"), StringCalc.add("-1,2"));
+	
+		try{
+				StringCalc.add("-1,2");
+		} catch (RuntimeException except) {
+			Assert.assertEquals("Negatives not allowed: -1", except.getMessage());
+		}
+		
+		try{
+			StringCalc.add("2,-4,3,-5");
+		} catch (RuntimeException except) {
+			Assert.assertEquals("Negatives not allowed: -4,-5", except.getMessage());
+		}
 	}
 }
