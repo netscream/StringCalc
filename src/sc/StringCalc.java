@@ -2,7 +2,7 @@ package sc;
 
 public class StringCalc {
 	public static int add(final String Input){
-		String stringSplit = ",";
+		String stringSplit = "\n|,";
 		int sumInput = 0;
 		if (Input.length() > 0)
 		{

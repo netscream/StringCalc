@@ -28,4 +28,10 @@ public class TestSC {
 	public final void addMoreThenTwoNumbers(){
 		Assert.assertEquals(1+2+3+4, StringCalc.add("1,2,3,4"));
 	}
+	
+	@Test
+	public final void newLineSeperator(){
+		Assert.assertEquals(6, StringCalc.add("1\n2,3"));
+		//Assert.assertEquals(1, StringCalc.add("1,\n"));
+	}
 }
