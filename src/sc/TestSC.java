@@ -23,4 +23,9 @@ public class TestSC {
 		Assert.assertEquals(3, StringCalc.add("1,2")); //suming up 2 numbers
 		Assert.assertEquals(1, StringCalc.add("-1,2")); //suming one negative number
 	}
+	
+	@Test
+	public final void addMoreThenTwoNumbers(){
+		Assert.assertEquals(1+2+3+4, StringCalc.add("1,2,3,4"));
+	}
 }
