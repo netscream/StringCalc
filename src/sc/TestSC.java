@@ -34,4 +34,10 @@ public class TestSC {
 		Assert.assertEquals(6, StringCalc.add("1\n2,3"));
 		//Assert.assertEquals(1, StringCalc.add("1,\n"));
 	}
+	
+	@Test
+	public final void changeDelimineter(){
+		Assert.assertEquals(3, StringCalc.add("//;\n1;2"));
+		Assert.assertEquals(6, StringCalc.add("//;\n1;2,3"));
+	}
 }

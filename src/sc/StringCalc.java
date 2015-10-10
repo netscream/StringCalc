@@ -1,8 +1,15 @@
 package sc;
 
 public class StringCalc {
-	public static int add(final String Input){
+	public static int add(String Input){
 		String stringSplit = "\n|,";
+		String delimineterChanger = "//";
+		if (Input.startsWith(delimineterChanger))
+		{
+			stringSplit += "|";
+			stringSplit += Input.substring(Input.indexOf(delimineterChanger)+delimineterChanger.length(), Input.indexOf("\n", Input.indexOf(delimineterChanger) +1));
+			Input = Input.substring(Input.indexOf("\n") + 1);
+		}
 		int sumInput = 0;
 		if (Input.length() > 0)
 		{
