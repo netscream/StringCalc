@@ -66,4 +66,14 @@ public class TestSC {
 	public final void anyLengthDelimenters(){
 		Assert.assertEquals(6, StringCalc.add("//[***]\n1***2***3"));
 	}
+	
+	@Test
+	public final void allowMultipleDelim(){
+		Assert.assertEquals(6, StringCalc.add("//[*][%]\n1*2%3"));
+		/*try{
+			StringCalc.add("//[*][%]\n1*2%3");
+		}catch(RuntimeException except){
+			Assert.assertEquals("N", except.getMessage());
+		}*/
+	}
 }
