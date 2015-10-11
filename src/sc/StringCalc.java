@@ -1,20 +1,44 @@
 package sc;
 
+import java.util.regex.Pattern;
+
 public class StringCalc {
 	public static int add(String Input){
 		String stringSplit = "\n|,";
 		String delimineterChanger = "//";
+		String CutString = "";
 		if (Input.startsWith(delimineterChanger))
 		{
-			stringSplit += "|";
+			/*stringSplit += "|";
 			stringSplit += Input.substring(Input.indexOf(delimineterChanger)+delimineterChanger.length(), Input.indexOf("\n", Input.indexOf(delimineterChanger) +1));
+			Input = Input.substring(Input.indexOf("\n") + 1);*/
+			CutString = Input.substring(Input.indexOf(delimineterChanger)+delimineterChanger.length(), Input.indexOf("\n", Input.indexOf(delimineterChanger) +1));
+			if (CutString.indexOf("[") != -1)
+			{
+				stringSplit += "|";
+				stringSplit += "(.)\\1+" + Input.substring(Input.indexOf(delimineterChanger)+delimineterChanger.length(), Input.indexOf("]", Input.indexOf(delimineterChanger)+delimineterChanger.length())+1);
+			}
+			else
+			{
+				stringSplit += "|";
+				stringSplit += Input.substring(Input.indexOf(delimineterChanger)+delimineterChanger.length(), Input.indexOf("\n", Input.indexOf(delimineterChanger) +1));
+			}
 			Input = Input.substring(Input.indexOf("\n") + 1);
 		}
 		int sumInput = 0;
 		if (Input.length() > 0)
 		{
 			String[] inputArr;
-			inputArr = Input.split(stringSplit);
+			if (CutString.length() > 1)
+			{
+				//String[] stringCut = stringSplit.split("|");
+				//inputArr = Input.split(stringCut);
+				inputArr = Input.split(stringSplit);
+			}
+			else
+			{
+				inputArr = Input.split(stringSplit);
+			}
 			String negString = "";
 			for (int i = 0; i < inputArr.length; i++)
 			{

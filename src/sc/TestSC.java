@@ -61,4 +61,9 @@ public class TestSC {
 	public final void notOverThousand(){
 		Assert.assertEquals(2, StringCalc.add("1001,2"));
 	}
+	
+	@Test
+	public final void anyLengthDelimenters(){
+		Assert.assertEquals(6, StringCalc.add("//[***]\n1***2***3"));
+	}
 }
