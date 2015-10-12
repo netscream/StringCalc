@@ -31,7 +31,7 @@ public class TestSC {
 	@Test
 	public final void newLineSeperator(){
 		Assert.assertEquals(6, StringCalc.add("1\n2,3"));
-		//Assert.assertEquals(1, StringCalc.add("1,\n"));
+		Assert.assertEquals(1, StringCalc.add("1,\n"));
 	}
 	
 	@Test
@@ -42,8 +42,6 @@ public class TestSC {
 	
 	@Test
 	public final void negativesNotAllowed(){
-		//Assert.assertEquals(RuntimeException("Negatives not allowed: -1"), StringCalc.add("-1,2"));
-	
 		try{
 				StringCalc.add("-1,2");
 		} catch (RuntimeException except) {
@@ -60,20 +58,18 @@ public class TestSC {
 	@Test
 	public final void notOverThousand(){
 		Assert.assertEquals(2, StringCalc.add("1001,2"));
+		Assert.assertEquals(3, StringCalc.add("1001,5000\n1,2"));
 	}
 	
 	@Test
 	public final void anyLengthDelimenters(){
 		Assert.assertEquals(6, StringCalc.add("//[***]\n1***2***3"));
+		Assert.assertEquals(6, StringCalc.add("//[%%%]\n1%%%2%%%3"));
+		Assert.assertEquals(6, StringCalc.add("//[+++]\n1+++2+++3"));
 	}
 	
 	@Test
 	public final void allowMultipleDelim(){
-		Assert.assertEquals(6, StringCalc.add("//[*][%]\n1*2%3"));
-		/*try{
-			StringCalc.add("//[*][%]\n1*2%3");
-		}catch(RuntimeException except){
-			Assert.assertEquals("N", except.getMessage());
-		}*/
+		Assert.assertEquals(15, StringCalc.add("//[*][%][+][s]\n1*2%3+4s5"));
 	}
 }
