@@ -1,6 +1,6 @@
 package sc;
 /**************************************************************************
- * T-303-Hugb Hugbúnaðarfræði
+ * T-303-Hugb 
  * Project: TDD with string calculator
  * Class: TestSC 
  * Test class implementation
