@@ -1,5 +1,12 @@
 package sc;
-
+/**************************************************************************
+ * T-303-Hugb Hugbúnaðarfræði
+ * Project: TDD with string calculator
+ * Class: TestSC 
+ * Test class implementation
+ * @author Hlynur
+ *
+ **************************************************************************/
 import org.junit.Assert;
 import org.junit.Test;
 
