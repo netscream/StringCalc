@@ -10,9 +10,13 @@ package sc;
 import org.junit.Assert;
 import org.junit.Test;
 
-import sc.StringCalc;
+//import sc.StringCalc;
 
 public class TestSC {
+	public static void main(String arg[])
+	{
+		org.junit.runner.JUnitCore.main("sc.TestSC");
+	}
 	@Test
 	public final void emptyStringAddedReturn0(){
 		Assert.assertEquals(0, StringCalc.add("")); //empty string
